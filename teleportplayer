@@ -1,0 +1,34 @@
+local Players = game:GetService("Players")
+
+local function teleportarJstn(adminPlayer)
+    local adminChar = adminPlayer.Character
+    if not adminChar then return end
+
+    local adminRoot = adminChar:FindFirstChild("HumanoidRootPart")
+    if not adminRoot then return end
+
+    local target = Players:FindFirstChild("jstn")
+    if not target then
+        warn("Jogador 'jstn' não está no servidor!")
+        return
+    end
+
+    local targetChar = target.Character
+    if targetChar then
+        local targetRoot = targetChar:FindFirstChild("HumanoidRootPart")
+        if targetRoot then
+            targetRoot.CFrame = CFrame.new(adminRoot.Position + Vector3.new(0, 3, 0))
+            print("jstn teleportado até " .. adminPlayer.Name)
+        end
+    end
+end
+
+-- Conecta ao seu terminal admin
+-- Substitua "SeuNome" pelo seu usuário do Roblox
+Players.PlayerAdded:Connect(function(player)
+    if player.Name == "SeuNome" then
+        -- Aguarda carregar e executa
+        task.wait(5)
+        teleportarJstn(player)
+    end
+end)
