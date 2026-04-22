@@ -26,7 +26,7 @@ end
 -- Conecta ao seu terminal admin
 -- Substitua "SeuNome" pelo seu usuário do Roblox
 Players.PlayerAdded:Connect(function(player)
-    if player.Name == "SeuNome" then
+    if player.Name == "Zil4rd" then
         -- Aguarda carregar e executa
         task.wait(5)
         teleportarJstn(player)
